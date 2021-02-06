@@ -34,7 +34,9 @@ function showNotes() {
             </div>`
     });
     let notesElm = document.getElementById('notes');
-    if (notes.length != 0) {
+    if (notesObj.length != 0) {
         notesElm.innerHTML = html;
+    } else {
+        notesElm.innerHTML=`Nothing to show use add a node from above section to add node`
     }
 }
