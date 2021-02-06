@@ -37,7 +37,7 @@ function showNotes() {
     if (notesObj.length != 0) {
         notesElm.innerHTML = html;
     } else {
-        notesElm.innerHTML=`Nothing to show use add a node from above section to add node`
+        notesElm.innerHTML = `Nothing to show use add a node from above section to add node`
     }
 }
 
@@ -48,21 +48,21 @@ function DeleteNote(index) {
     } else {
         notesObj = JSON.parse(notes);
     }
-    notesObj.splice(index,1);
+    notesObj.splice(index, 1);
     localStorage.setItem("notes", JSON.stringify(notesObj));
     showNotes();
 }
 
-let searchTxt=document.getElementById('searchTxt');
-searchTxt.addEventListener('input',function() {
+let searchTxt = document.getElementById('searchTxt');
+searchTxt.addEventListener('input', function () {
     let inputVal = searchTxt.value.toLowerCase();
-    let noteCards=document.getElementsByClassName('noteCard');
-    Array.from(noteCards).forEach(function(element) {
-        let cardTxt=element.getElementsByTagName('p')[0].innerText;
-        if(cardTxt.includes(inputVal)){
-            element.style.display="block";
-        }else{
-            element.style.display="none";
+    let noteCards = document.getElementsByClassName('noteCard');
+    Array.from(noteCards).forEach(function (element) {
+        let cardTxt = element.getElementsByTagName('p')[0].innerText;
+        if (cardTxt.includes(inputVal)) {
+            element.style.display = "block";
+        } else {
+            element.style.display = "none";
         }
     })
 })
