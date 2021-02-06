@@ -55,7 +55,7 @@ function DeleteNote(index) {
 
 let searchTxt=document.getElementById('searchTxt');
 searchTxt.addEventListener('input',function() {
-    let inputVal = searchTxt.value;
+    let inputVal = searchTxt.value.toLowerCase();
     let noteCards=document.getElementsByClassName('noteCard');
     Array.from(noteCards).forEach(function(element) {
         let cardTxt=element.getElementsByTagName('p')[0].innerText;
