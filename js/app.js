@@ -12,7 +12,7 @@ addBtn.addEventListener('click', function (e) {
     localStorage.setItem("notes", JSON.stringify(notesObj));
     addTxt.value = "";
     console.log(notesObj);
-
+    showNotes();
 })
 
 function showNotes() {
@@ -29,7 +29,7 @@ function showNotes() {
                 <div class="card-body">
                     <h5 class="card-title">Note ${index + 1}</h5>
                     <p class="card-text">${element}</p>
-                    <button class="btn btn-primary">Delete Note</button>
+                    <button id=${index} onClick="DeleteNote(this.id)" class="btn btn-primary">Delete Note</button>
                 </div>
             </div>`
     });
@@ -39,4 +39,16 @@ function showNotes() {
     } else {
         notesElm.innerHTML=`Nothing to show use add a node from above section to add node`
     }
+}
+
+function DeleteNote(index) {
+    let notes = localStorage.getItem('notes');
+    if (notes == null) {
+        notesObj = [];
+    } else {
+        notesObj = JSON.parse(notes);
+    }
+    notesObj.splice(index,1);
+    localStorage.setItem("notes", JSON.stringify(notesObj));
+    showNotes();
 }
